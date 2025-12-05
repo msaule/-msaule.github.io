@@ -1,4 +1,41 @@
 ---
 layout: home
-# Index page
+# No title — the hero section handles everything.
 ---
+
+<div class="hero-container" style="padding: 6rem 2rem; text-align: center;">
+
+  <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">
+    I build analytics tools that solve real problems.
+  </h1>
+
+  <p style="font-size: 1.3rem; color: #aaa; max-width: 700px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
+    No recycled dashboards. No generic student projects.  
+    Real systems — built from scratch — that forecast, detect, automate, and actually get used.
+  </p>
+
+  <div style="margin-top: 2rem;">
+    <a href="/tabs/resume" class="btn" style="margin-right: 1rem;">
+      View Résumé
+    </a>
+
+    <a href="https://www.linkedin.com/in/markusssaule" target="_blank" class="btn btn-outline">
+      LinkedIn
+    </a>
+  </div>
+
+</div>
+
+<hr style="margin: 4rem auto; opacity: 0.1;">
+
+<div style="padding: 2rem;">
+  <h2 style="text-align: center; font-weight: 600; margin-bottom: 2rem;">
+    Featured Projects
+  </h2>
+
+  <p style="text-align: center; color: #888; margin-bottom: 3rem;">
+    A few builds I’m proud of.
+  </p>
+
+  {% include_relative tabs/projects-list.md %}
+</div>
