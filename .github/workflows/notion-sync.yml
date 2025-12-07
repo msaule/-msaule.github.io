@@ -1,0 +1,29 @@
+name: Sync Notion to Markdown
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */12 * * *'   # Runs every 12 hours
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Convert Notion to Markdown
+      uses: souvikns/notion-to-md@v2
+      with:
+        notion_token: ${{ secrets.NOTION_TOKEN }}
+        page_id: ${{ secrets.NOTION_PAGE_ID }}
+        output: './_projects'   # where markdown will go
+
+    - name: Commit and Push
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git add .
+        git commit -m "Sync Notion content" || echo "No changes to commit"
+        git push
